@@ -5,11 +5,22 @@ import YoutubePlayer from 'react-native-youtube-iframe'
 import axios from "axios";
 
 const Home = () => {
-    const [jsonData, setJsonData] = useState([]);
+  const [jsonData, setJsonData] = useState([]);
+  const fetch = async() => {
+    try {
+      const response = await axios.get("http://192.168.1.7:3001/movies");
+      console.log(response.data)
+    }
+    catch (err) {
+      console.log(err)
+    }
+  }
     
 
   useEffect(() => {
-      setJsonData(data);
+    
+    setJsonData(data);
+    fetch()
       
       
   }, []);

@@ -4,7 +4,7 @@ import React from "react";
 const Search = () => {
   return (
     <View>
-      <Text style={styles.heading}>Hello</Text>
+      
       <View style={styles.inputdiv}>
         <TextInput style={styles.input} placeholder="Search Movies" />
       </View>
