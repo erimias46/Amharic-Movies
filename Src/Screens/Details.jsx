@@ -34,7 +34,7 @@ const Details = ({navigation,route}) => {
       <YoutubePlayer
         height={300}
         play={true}
-        videoId={movies.url.slice(32,)}
+        videoId={movies.url}
        
       />
     </View>
