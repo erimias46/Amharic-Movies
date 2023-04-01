@@ -8,8 +8,7 @@ const Details = ({navigation,route}) => {
  
   const [movies, setMovies] = useState([]);
   
-  const m = movies.url
-  const text = m.slice(32,)
+ 
   
 
    const fetch = async () => {
