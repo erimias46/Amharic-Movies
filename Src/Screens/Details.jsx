@@ -1,12 +1,16 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import YoutubeIframe from 'react-native-youtube-iframe'
+import YoutubePlayer from "react-native-youtube-iframe";
 
 const Details = ({navigation,route}) => {
   let id = route.params.id
-  console.log(id)
-   const [movies, setMovies] = useState([]);
+ 
+  const [movies, setMovies] = useState([]);
+  
+  const m = movies.url
+  const text = m.slice(32,)
+  
 
    const fetch = async () => {
      try {
@@ -16,7 +20,9 @@ const Details = ({navigation,route}) => {
      } catch (err) {
        console.log(err);
      }
-   };
+  };
+  
+
 
    useEffect(() => {
      fetch();
@@ -24,9 +30,15 @@ const Details = ({navigation,route}) => {
   
   return (
     <View>
-      <Text></Text>
+     <Text></Text> 
+      <YoutubePlayer
+        height={300}
+        play={true}
+        videoId={movies.url.slice(32,)}
+       
+      />
     </View>
-  )
+  );
 }
 
 export default Details
