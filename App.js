@@ -16,12 +16,16 @@ export default function App() {
           <Stack.Screen
             name="Home"
             component={Home}
-            options={{ title: "Welcome" }}
+            options={{
+              headerShown: false, // change this to `false`
+            }}
           />
           <Stack.Screen
             name="Details"
             component={Details}
-            options={{ title: "Watch Movie" }}
+            options={{
+              headerShown: false, // change this to `false`
+            }}
           />
         </Stack.Navigator>
       </Provider>

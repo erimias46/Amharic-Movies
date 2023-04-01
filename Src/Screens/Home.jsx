@@ -3,11 +3,17 @@ import React from 'react'
 import Header from '../Components/Header'
 import Search from '../Components/Search'
 import Body from '../Components/Body'
+import { useFonts } from "expo-font";
+import fonts from '../../fonts'
 
-
-export default function Home({navigation}) {
+export default function Home({ navigation }) {
+  const [loaded] = useFonts({
+    Poppins: fonts.poppins,
+    "Poppins-Bold": fonts["poppins-bold"],
+    "Poppins-Light": fonts["poppins-light"],
+  });
   return (
-    <View>
+    <View style={styles.body}>
       <Header />
       <Search />
       <Body navigation={navigation}/>
@@ -15,4 +21,9 @@ export default function Home({navigation}) {
   );
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  body: {
+    backgroundColor: "#070D2D",
+    fontFamily: "Poppins",
+  },
+});
