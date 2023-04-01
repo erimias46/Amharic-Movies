@@ -1,23 +1,31 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import Header from './Src/Components/Header';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './Src/Screens/Home';
+import Details from './Src/Screens/Details';
 import { Provider as PaperProvider, Provider } from "react-native-paper";
-import Body from './Src/Components/Body';
-import Search from './Src/Components/Search';
+
+const Stack=createNativeStackNavigator()
 
 export default function App() {
   return (
-    <Provider>
-      <View style={styles.container}>
-        <Header />
-        <Search />
-        {/* <Home /> */}
-        <Body />
-      <StatusBar style="auto" />
-    </View>
-    </Provider>
-    
+    <NavigationContainer>
+      <Provider>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="Home"
+            component={Home}
+            options={{ title: "Welcome" }}
+          />
+          <Stack.Screen
+            name="Details"
+            component={Details}
+            options={{ title: "Watch Movie" }}
+          />
+        </Stack.Navigator>
+      </Provider>
+    </NavigationContainer>
   );
 }
 
